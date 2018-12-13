@@ -1096,6 +1096,7 @@
         }
 
         .c53 {
+            color: #2d3b45;
             border-right-style: solid;
             padding: 5pt 5pt 5pt 5pt;
             border-bottom-color: #000000;
@@ -1843,6 +1844,16 @@
             widows: 2;
             text-align: left
         }
+
+        html {
+            display: table;
+            margin: auto;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+        }
     </style>
 
     <!-- Latest compiled and minified CSS -->
@@ -1859,7 +1870,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Final Project</a>
+                <a class="navbar-brand" style='padding-left:250px'></a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Summary</a></li>
@@ -1870,12 +1881,6 @@
         </div>
     </nav>
 
-
-    <div>
-        <p class="c2 c20"><span class="c47 c73"></span></p>
-    </div>
-    <p class="c59 c20"><span class="c29"></span></p>
-    <p class="c6 c20"><span class="c4"></span></p>
     <h2 class="c32"><span class="c5">Feature Engineering and Final Models</span></h2>
     <p class="c2"><span class="c39">Feature Engineering</span></p>
     <p class="c2"><span class="c16">Model Variables:</span></p>
@@ -2137,23 +2142,9 @@
     <p class="c0"><span class="c13 c48">Optimizer = sgd with; learning rate = 0.9; decay rate = 0.02/num_epochs;
             batch_size = 512.</span></p>
     <p class="c0 c20"><span class="c13 c48"></span></p>
-    <p class="c69"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 344.60px; height: 243.69px;"><img
-                alt="" src="models_images/image14.png" style="width: 344.60px; height: 243.69px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+    <p class="c69"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 544.60px; height: 443.69px;"><img
+                alt="" src="models_images/image14.png" style="width: 544.60px; height: 443.69px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                 title=""></span></p>
-    <p class="c0 c20"><span class="c9"></span></p>
-    <p class="c0"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 118.73px; height: 57.53px;"><img
-                alt="" src="models_images/image7.png" style="width: 118.73px; height: 57.53px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 120.87px; height: 73.60px;"><img
-                alt="" src="models_images/image6.png" style="width: 120.87px; height: 73.60px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 120.87px; height: 73.60px;"><img
-                alt="" src="models_images/image11.png" style="width: 120.87px; height: 73.60px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 99.07px; height: 83.27px;"><img
-                alt="" src="models_images/image16.png" style="width: 99.07px; height: 83.27px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span></p>
-    <p class="c0 c20"><span class="c9"></span></p>
-    <p class="c0 c20"><span class="c9"></span></p>
-    <p class="c0 c20"><span class="c9"></span></p>
-    <p class="c0 c20"><span class="c9"></span></p>
     <p class="c0 c20"><span class="c9"></span></p>
     <p class="c0"><span class="c9">We experimented with different input data set generated using different missing
             value handling methods. The input data set where the missing values are imputed showed better performance
@@ -2162,15 +2153,8 @@
             validation mean accuracy and loss on training and valid data set shows that the model starts overfitting
             after 40 epochs.</span></p>
     <p class="c0 c20"><span class="c9"></span></p>
-    <p class="c54"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 421.00px; height: 30.50px;"><img
-                alt="" src="models_images/image10.png" style="width: 421.00px; height: 30.50px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 421.00px; height: 31.00px;"><img
-                alt="" src="models_images/image10.png" style="width: 421.00px; height: 31.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span></p>
-    <p class="c54"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 448.00px; height: 312.00px;"><img
-                alt="" src="models_images/image2.png" style="width: 448.00px; height: 312.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-                title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 455.00px; height: 314.00px;"><img
-                alt="" src="models_images/image9.png" style="width: 455.00px; height: 314.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+    <p class="c54"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 903.00px; height: 312.00px;"><img
+                alt="" src="models_images/image2.png" style="width: 903.00px; height: 312.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                 title=""></span></p>
     <p class="c0 c20"><span class="c9"></span></p>
     <p class="c0"><span class="c35">The model is re-trained using for 40 epochs, and the loss and accuracy score are
@@ -2530,6 +2514,20 @@
     <p class="c6 c20"><span class="c12"></span></p>
     <p class="c6"><span class="c30">Accuracy of Final Random Forest model on train set: &nbsp;67.52 %</span></p>
     <p class="c6"><span class="c30">Accuracy of Final Random Forest model on test set: &nbsp;66.67 %</span></p>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" style='padding-left:250px'></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Summary</a></li>
+                <li><a href="eda.html">EDA</a></li>
+                <li class="active"><a href="models.html">Models</a></li>
+                <li><a href="conclusions.html">Conclusions</a></li>
+            </ul>
+        </div>
+    </nav>
 </body>
 
 </html>
