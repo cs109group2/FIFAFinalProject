@@ -1854,6 +1854,27 @@
             display: table-cell;
             vertical-align: middle;
         }
+
+        #toc_container {
+            background: #f9f9f9 none repeat scroll 0 0;
+            border: 1px solid #aaa;
+            display: table;
+            font-size: 95%;
+            margin-bottom: 1em;
+            padding: 20px;
+            width: auto;
+        }
+
+        .toc_title {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        #toc_container li,
+        #toc_container ul,
+        #toc_container ul li {
+            list-style: outside none none !important;
+        }
     </style>
 
     <!-- Latest compiled and minified CSS -->
@@ -1881,9 +1902,46 @@
         </div>
     </nav>
 
-    <h2 class="c32"><span class="c5">Feature Engineering and Final Models</span></h2>
-    <p class="c2"><span class="c39">Feature Engineering</span></p>
-    <p class="c2"><span class="c16">Model Variables:</span></p>
+    <div id="toc_container">
+        <p class="toc_title">Contents</p>
+        <ul class="toc_list">
+            <li><a href="#feature_engineering">Feature Engineering</a>
+                <ul>
+                    <li><a href="#model_variables">Model Variables</a></li>
+                    <li><a href="#dummy_variables">Dummy Variables</a>
+                    <li><a href="#missing_values">Missing Values</a>
+                    <li><a href="#feature_scaling">Featured Scaling</a>
+                    <li><a href="#polynomial_features">Polynomial Features</a></li>
+                    <li><a href="#design_matrix">Design Matrix</a>
+                    <li><a href="#split_train_and_test">Split Train and Test</a>
+                    <li><a href="#split_train_and_validation">Split Train and Validation</a>
+                </ul>
+            </li>
+            <li><a href="#classification_models">Classification Models</a>
+                <ul>
+                    <li><a href="#mlp_neural_network">MLP Neural Network</a></li>
+                    <li><a href="#support_vector_machine">Support Vector Machine</a>
+                    <li><a href="#ada_boosting_classifier">Ada Boosting Classifier</a>
+                    <li><a href="#comparison_of_model_performance">Comparison of Model Performance</a>
+                </ul>
+            </li>
+            <li><a href="#Comparative_study_on_different_classifiers">Comparative Study on Different Classifiers</a>
+                <ul>
+                    <li><a href="#performance_metrics_comparison">Performance Metrics Comparison</a></li>
+                    <li><a href="#models_performance_on_predicting_the_winner_class">Models Performance on predicting
+                            the Winner class</a>
+                    <li><a href="#models_performance_on_predicting_the_loser_class">Models Performance on predicting
+                            the Loser class</a>
+                    <li><a href="#fine_tuning_of_random_forest_model">Fine-tuning of Random Forest Model</a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <h2 class="c32"><span class="c5"></span>Feature Engineering and Final Models</span></h2>
+    <p class="c2"><span class="c39" id="feature_engineering">Feature Engineering</span></p>
+    <p class="c2"><span class="c16" id="model_variables">Model Variables:</span></p>
     <p class="c68"><span class="c35">The variable </span><span class="c13">outcome</span><span class="c9">&nbsp;is set
             as the target variable. &nbsp;The exploratory data analysis showed that form factor, FIFA ranks, Location
             of the game (country, continent), attack vs defense, dense vs attack, midfield and overall score have
@@ -2074,11 +2132,13 @@
         </tbody>
     </table>
     <p class="c2 c20"><span class="c16"></span></p>
-    <p class="c2"><span class="c26">Dummy Variables:</span><span class="c9">&nbsp;Dummy variables are created for the
+    <p class="c2"><span class="c26" id="dummy_variables">Dummy Variables:</span><span class="c9">&nbsp;Dummy variables
+            are created for the
             categorical features, and the original categorical features are dropped from the input data matrix. while
             creating a set of dummy variables for a categorical feature with n categories, we dropped one category and
             created n-1 dummy variables.</span></p>
-    <p class="c2"><span class="c26">Missing Values: </span><span class="c9">&nbsp;The features related to team strength
+    <p class="c2"><span class="c26" id="missing_values">Missing Values: </span></span><span class="c9">&nbsp;The
+            features related to team strength
             have values only from 2007. &nbsp;We wanted to experiment the models with different options for handling
             missing values. &nbsp;</span></p>
     <ol class="c25 lst-kix_haemcwpp3zgk-0 start" start="1">
@@ -2092,9 +2152,11 @@
                 values, and the trained model is used to predict the target variables with the missing values. &nbsp;
             </span></li>
     </ol>
-    <p class="c2"><span class="c26">Feature Scaling:</span><span class="c35">&nbsp;</span><span class="c13">StandardScaler</span><span
-            class="c9">&nbsp;is used to transform the all features with mean zero and standard deviation of 1.</span></p>
-    <p class="c2" id="h.gjdgxs"><span class="c26">Polynomial Features</span><span class="c9">: we wanted to experiment
+    <p class="c2"><span class="c26" id="feature_scaling">Feature Scaling:</span><span class="c35">&nbsp;</span><span
+            class="c13">StandardScaler</span><span class="c9">&nbsp;is used to transform the all features with mean
+            zero and standard deviation of 1.</span></p>
+    <p class="c2" id="h.gjdgxs"><span class="c26" id="polynomial_features">Polynomial Features</span><span class="c9">:
+            we wanted to experiment
             our model with adding more polynomial features and interaction terms. </span></p>
     <ol class="c25 lst-kix_cdlkdt8zuedr-0 start" start="1">
         <li class="c0 c51"><span class="c35">Power term: The polynomial features with degree 2 and 3 are created for
@@ -2113,17 +2175,17 @@
     <p class="c0"><span class="c13">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;overall_diff</span><span class="c9">]</span></p>
     <p class="c2 c20"><span class="c16"></span></p>
-    <p class="c2"><span class="c16">Design Matrix:</span></p>
+    <p class="c2"><span class="c16" id="design_matrix">Design Matrix:</span></p>
     <p class="c2"><span class="c26">Split x and y</span><span class="c9">: </span></p>
     <p class="c2"><span class="c9">The variable Outcome is dropped from the input data matrix and considered as a
             target variable. &nbsp;</span></p>
-    <p class="c2"><span class="c26">Split Train and Test</span><span class="c9">: </span></p>
+    <p class="c2"><span class="c26" id="split_train_and_test">Split Train and Test</span><span class="c9">: </span></p>
     <p class="c2"><span class="c9">The world cup 2018 matches are dropped from the input data matrix and considering as
             test data set. &nbsp;The remaining data are considered for model training the validation. &nbsp;</span></p>
-    <p class="c2"><span class="c26">Split train and Validation:</span><span class="c9">&nbsp;</span></p>
+    <p class="c2"><span class="c26" id="split_train_and_validation">Split train and Validation:</span><span class="c9">&nbsp;</span></p>
     <p class="c2"><span class="c35">20% of the random samples from the training data is removed for model cross
             validation and the remaining 80% of the data is used for model training. </span></p>
-    <h2 class="c32"><span class="c31">Classification Models</span></h2>
+    <h2 class="c32"><span class="c31" id="classification_models">Classification Models</span></h2>
     <p class="c2"><span class="c35">We have built many models to predict the outcome of 2018 world cup games: </span><span
             class="c26">1. Logistics Regression (LR), 2. Linear Discriminant Analysis (LDA), 3. k-Nearest Neighborhood
             (kNN), 4. Decision Tree (CART), 5. Gaussian NB (NB), 6. Support Vector Machines (SVM), &nbsp;7.Random
@@ -2131,7 +2193,8 @@
             Perceptron (MLP) Neural Network</span><span class="c9">. We pick a few of them to explain the process.</span></p>
     <p class="c2 c20"><span class="c9"></span></p>
     <ol class="c25 lst-kix_9jfue93vo4pq-0 start" start="1">
-        <li class="c0 c51"><span class="c45 c26">MLP Neural Network</span><span class="c35">: A dense sequential layer
+        <li class="c0 c51"><span class="c45 c26" id="mlp_neural_network">MLP Neural Network</span><span class="c35">: A
+                dense sequential layer
                 neural network architecture is used. &nbsp;We have come up with a network architecture with 2 hidden
                 layers and 1 output layer. The number of neurons in the input layer is equal to the number of input
                 parameters. &nbsp;The number of neurons in hidden layer 1 is 100 and in hidden layer 2 is 75. The
@@ -2180,7 +2243,7 @@
     <p class="c0 c20"><span class="c9"></span></p>
     <p class="c0 c20"><span class="c9"></span></p>
     <ol class="c25 lst-kix_9jfue93vo4pq-0" start="2">
-        <li class="c50"><span class="c26 c45">Support Vector Machine</span><span class="c9">:</span></li>
+        <li class="c50"><span class="c26 c45" id="support_vector_machine">Support Vector Machine</span><span class="c9">:</span></li>
     </ol>
     <p class="c2"><span class="c35">The support vector machine classifier is built with different kernels and
             regularization parameter. &nbsp;The model with </span><span class="c13">rbf</span><span class="c9">&nbsp;kernel
@@ -2195,7 +2258,8 @@
                 title=""></span></p>
     <p class="c2 c20"><span class="c9"></span></p>
     <p class="c2 c20"><span class="c9"></span></p>
-    <p class="c2"><span class="c35">3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="c45 c26">Ada
+    <p class="c2"><span class="c35" id="ada_boosting_classifier">3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+            class="c45 c26">Ada
             Boosting Classifier:</span></p>
     <p class="c14"><span class="c35 c36">The ada-boosting classifier is built and trained on the training data. We
             experimented with different parameter settings for number of estimator, learning rate and found that the
@@ -2213,8 +2277,8 @@
     <p class="c2 c20"><span class="c47 c45 c26"></span></p>
     <p class="c2 c20"><span class="c47 c45 c26"></span></p>
     <p class="c6 c20"><span class="c4"></span></p>
-    <p class="c14"><span class="c26 c49 c36">Comparison of Model Performance</span></p><a id="t.d612bdb526907d58cd6e8dfd809c230d5f24422b"></a><a
-        id="t.1"></a>
+    <p class="c14"><span class="c26 c49 c36" id="comparison_of_model_performance">Comparison of Model Performance</span></p><a
+        id="t.d612bdb526907d58cd6e8dfd809c230d5f24422b"></a><a id="t.1"></a>
     <table class="c64">
         <tbody>
             <tr class="c74">
@@ -2345,7 +2409,8 @@
             terms of running time, the SVM is very slow and computationally very expensive. &nbsp;Ada boosting is built
             on week learners, and it converges very quickly. &nbsp; </span></p>
     <p class="c3 c20"><span class="c38 c36"></span></p>
-    <p class="c3"><span class="c36 c38">Comparative Study on Different Classifiers</span></p>
+    <p class="c3"><span class="c36 c38" id="Comparative_study_on_different_classifiers">Comparative Study on Different
+            Classifiers</span></p>
     <p class="c3 c20"><span class="c49 c36 c61"></span></p>
     <p class="c3"><span class="c4">We wanted to experiment with the different classifiers to understand how different
             classifiers perform on world cup data. </span></p>
@@ -2384,7 +2449,7 @@
                 title=""></span></p>
     <p class="c6 c20"><span class="c26 c36 c49"></span></p>
     <p class="c6 c20"><span class="c29"></span></p>
-    <p class="c3"><span class="c60 c49">Performance Metrics Comparison</span></p>
+    <p class="c3"><span class="c60 c49" id="performance_metrics_comparison">Performance Metrics Comparison</span></p>
     <p class="c3"><span class="c12">The performance of all 9 models are tested on the test data set. &nbsp;The test
             data set accuracy shows that the ada boosting has top accuracy score of 0.62</span></p>
     <p class="c3"><span class="c12">&nbsp;</span></p><a id="t.ae6fa85b1a5cd7223c118e9192ccb0f118afb0e7"></a><a id="t.2"></a>
@@ -2473,7 +2538,8 @@
         </tbody>
     </table>
     <p class="c3"><span class="c15">&nbsp;</span></p>
-    <p class="c3"><span class="c60 c49">Models Performance on predicting the Winner class: </span></p>
+    <p class="c3"><span class="c60 c49" id="models_performance_on_predicting_the_winner_class">Models Performance on
+            predicting the Winner class: </span></p>
     <p class="c3"><span class="c12">The accuracy plot on winner class shows that the Ada boosting and Linear
             Discriminant Analysis performs well on predicting the winner class. &nbsp;The overall metrics f1-score
             shows that the overall performance of Decision Tree and Na&iuml;ve Bayes models are low on predicting the
@@ -2485,7 +2551,8 @@
                 alt="" src="models_images/image13.png" style="width: 839.00px; height: 414.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                 title=""></span></p>
     <p class="c6 c20"><span class="c49 c36 c66"></span></p>
-    <p class="c3"><span class="c49 c60">Models Performance on predicting the Loser class: </span></p>
+    <p class="c3"><span class="c49 c60" id="models_performance_on_predicting_the_loser_class">Models Performance on
+            predicting the Loser class: </span></p>
     <p class="c3"><span class="c60 c49">&nbsp;</span></p>
     <p class="c3"><span class="c12">The accuracy plot on loser class shows that the Ada boosting and Linear
             Discriminant Analysis performs well on predicting the loser class. &nbsp;The overall metrics f1-score shows
@@ -2500,7 +2567,8 @@
             Gradient Boosting, &nbsp;SVM, Logistic regression and Random Forest Models can be used to model the world
             cup game prediction problem.</span></p>
     <p class="c6 c20"><span class="c26 c49 c36"></span></p>
-    <p class="c6"><span class="c39 c36">Fine-tuning of Random Forest Model (Best Model)</span></p>
+    <p class="c6"><span class="c39 c36" id="fine_tuning_of_random_forest_model">Fine-tuning of Random Forest Model
+            (Best Model)</span></p>
     <p class="c6 c20"><span class="c4"></span></p>
     <p class="c6"><span class="c35 c36">From the charts, we can see several models hitting about 60-65% accuracy. Given
             more time, we could try tuning the models further. However, when the &nbsp;</span><span class="c26 c36">Random

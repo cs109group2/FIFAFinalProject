@@ -1315,6 +1315,27 @@
             display: table-cell;
             vertical-align: middle;
         }
+
+        #toc_container {
+            background: #f9f9f9 none repeat scroll 0 0;
+            border: 1px solid #aaa;
+            display: table;
+            font-size: 95%;
+            margin-bottom: 1em;
+            padding: 20px;
+            width: auto;
+        }
+
+        .toc_title {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        #toc_container li,
+        #toc_container ul,
+        #toc_container ul li {
+            list-style: outside none none !important;
+        }
     </style>
 
     <!-- Latest compiled and minified CSS -->
@@ -1344,10 +1365,33 @@
         </div>
     </nav>
 
+    <div id="toc_container">
+        <p class="toc_title">Contents</p>
+        <ul class="toc_list">
+            <li><a href="#eda">Exploratory Data Analysis</a>
+                <ul>
+                    <li><a href="#game_location">Game Location</a></li>
+                    <li><a href="#form_factor">Form Factor</a>
+                    <li><a href="#team_chemistry">Team Chemistry</a>
+                    <li><a href="#team_strengths">Team Strengths</a>
+                    <li><a href="#average_age">Average Age</a></li>
+                    <li><a href="#overall_team_strength">Overall Team Strength</a>
+                    <li><a href="#ranking_difference">Ranking Difference</a>
+                </ul>
+            </li>
+            <li><a href="#baseline_models">Baseline Models</a>
+                <ul>
+                    <li><a href="#random_generator">Random Generator</a></li>
+                    <li><a href="#Logistic_regression">Logistic Regression</a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
     <div>
         <p class="c16"><span class="c1 c7"></span></p>
     </div>
-    <p class="c4"><span class="c21 c1">Exploratory Data Analysis</span></p>
+    <p class="c4"><span class="c21 c1" id="eda">Exploratory Data Analysis</span></p>
     <p class="c3"><span class="c1 c21"></span></p>
     <p class="c4"><span class="c0 c1">We wanted to build some intuition through EDA as to which features can provide
             good prediction. We will show some plots to understand the importance of features such as Game Location
@@ -1355,7 +1399,8 @@
             Chemistry (a higher standard deviation in players&rsquo; strength in a team indicates a low Team chemistry)
             and Team Strength based on Attack, Defense, Mid-field strengths of the players in a team. </span></p>
     <p class="c3"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c2 c15">1. Game Location</span><span class="c0 c15">:</span><span class="c0 c1">&nbsp;We
+    <p class="c4"><span class="c2 c15" id="game_location">1. Game Location</span><span class="c0 c15">:</span><span
+            class="c0 c1">&nbsp;We
             created a variable to indicate whether the game was played in Team 1&rsquo;s country /continent or Team
             2&rsquo;s country/continent or at a neutral location. Although this is a simple feature, we plan to explore
             it a bit to see if &ldquo;Home&rdquo; advantage is crucial or not when other things are close enough. This
@@ -1371,7 +1416,8 @@
             predictions of game outcomes. </span><span class="c8">We will include country and continent as one of the
             predictors</span><span class="c0 c1">&nbsp;as it has the predictive power on the game outcome. </span></p>
     <p class="c19"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c2 c15">2. Form factor</span><span class="c0 c15">:</span><span class="c0">&nbsp;We have
+    <p class="c4"><span class="c2 c15" id="form_factor">2. Form factor</span><span class="c0 c15">:</span><span class="c0">&nbsp;We
+            have
             created an additional feature that calculates the number of wins within the last 10 games for each team and
             each moment in time. This will serve as one proxy for the current form of a team. The original intuition
             here is that even if a team is historically a weak team its recent form weighs more and could give the
@@ -1386,7 +1432,7 @@
                 alt="" src="eda_images/image6.png" style="width: 578.00px; height: 430.50px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                 title=""></span></p>
     <p class="c3"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c2">3.</span><span class="c2 c15">Team Chemistry:</span><span class="c2">&nbsp;</span><span
+    <p class="c4"><span class="c2">3.</span><span class="c2 c15" id="team_chemistry">Team Chemistry:</span><span class="c2">&nbsp;</span><span
             class="c0">We know that one extraordinary player cannot do wonders in a team sport if there are many other
             players are very mediocre. Likewise, a team with many above average players could be a better team as they
             tend to have a better &ldquo;coordination&rdquo; or &ldquo;chemistry&rdquo;. To that point, we created a
@@ -1429,7 +1475,7 @@
             correlation we wanted to see but instead when we compared year over year we can see that it did not show a
             nice correlation overall with the wins achieved in those years.</span></p>
     <p class="c4"><span class="c0 c1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
-    <p class="c4"><span class="c2">4. </span><span class="c2 c15">Team Strengths:</span><span class="c0 c1">&nbsp;Based
+    <p class="c4"><span class="c2">4. </span><span class="c2 c15" id="team_strengths">Team Strengths:</span><span class="c0 c1">&nbsp;Based
             on the players&rsquo; strength in Attack, Defense and Midfield, we wanted &nbsp;to segregate the
             &nbsp;strength of the team into three areas. In Soccer, we know that one team&rsquo;s attack deals with the
             other team&rsquo;s defense. So, it makes sense to use two scores by taking the difference between one
@@ -1522,7 +1568,7 @@
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c3"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c2 c5">5. Average Age</span></p>
+    <p class="c4"><span class="c2 c5" id="average_age">5. Average Age</span></p>
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c4"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 527.82px; height: 377.50px;"><img
                 alt="" src="eda_images/image22.png" style="width: 527.82px; height: 377.50px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
@@ -1540,7 +1586,7 @@
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c3"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c2">6. </span><span class="c2 c15">Overall Team Strength</span></p>
+    <p class="c4"><span class="c2" id="overall_team_strength">6. </span><span class="c2 c15">Overall Team Strength</span></p>
     <p class="c4"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 517.50px; height: 370.12px;"><img
                 alt="" src="eda_images/image14.png" style="width: 517.50px; height: 370.12px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                 title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 428.50px; height: 76.65px;"><img
@@ -1556,7 +1602,8 @@
             class="c8">We will include team defense as one of the predictor</span><span class="c14">&nbsp;</span><span
             class="c0 c1">as it has the predictive power on the game outcome. </span></p>
     <p class="c3"><span class="c2 c1"></span></p>
-    <p class="c4"><span class="c2 c15">7.</span><span class="c2">&nbsp;</span><span class="c2 c15">Ranking difference</span></p>
+    <p class="c4"><span class="c2 c15" id="ranking_difference">7.</span><span class="c2">&nbsp;</span><span class="c2 c15">Ranking
+            difference</span></p>
     <p class="c4"><span class="c0 c1">FIFA rankings is one of the important indicator of a team performance. &nbsp;We
             would like to analyze the predictive power of the FIFA ranking. We have considered the difference between
             the ranking of teams in a game as a feature. &nbsp;</span></p>
@@ -1577,13 +1624,13 @@
             class="c8">will include FIFA-rank-difference as one of the predictor</span><span class="c0 c1">&nbsp;as it
             has the predictive power of the game outcome. </span></p>
     <p class="c3"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c1 c11">Baseline Models</span></p>
+    <p class="c4"><span class="c1 c11" id="baseline_models">Baseline Models</span></p>
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c4"><span class="c0 c1">In our baseline models, we have considered three-category classification for the
             outcome. &nbsp;The classes in the response variable are 1: Team-1 is a winner; 0: Draw and -1: Team-1 is a
             loser.</span></p>
     <p class="c3"><span class="c2 c5"></span></p>
-    <p class="c4"><span class="c2 c15">Random Generator</span><span class="c0 c5">: </span></p>
+    <p class="c4"><span class="c2 c15" id="random_generator">Random Generator</span><span class="c0 c5">: </span></p>
     <p class="c4"><span class="c0 c1">The predicted outcome of the model is generated randomly which gives equal
             probability for Winner, Non-Winner and Draw classes. &nbsp;</span></p>
     <p class="c3"><span class="c0 c1"></span></p>
@@ -1601,7 +1648,7 @@
             positive rate (sensitivity) and false positive rate (1-specificity). Area under the curve is 0.51 which
             shows that the model is pure random on prediction.</span></p>
     <p class="c3"><span class="c0 c1"></span></p>
-    <p class="c4"><span class="c2 c15">Logistic Regression:</span><span class="c2 c1">&nbsp;</span></p>
+    <p class="c4"><span class="c2 c15" id="Logistic_regression">Logistic Regression:</span><span class="c2 c1">&nbsp;</span></p>
     <p class="c3"><span class="c0 c1"></span></p>
     <p class="c4"><span class="c0 c1">We have built a logistic regression model as another baseline model with
             predictors: Game Location, Game Continent, Rank-difference, Team-1, Team-2; and Response Variable: Outcome
